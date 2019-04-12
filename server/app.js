@@ -27,7 +27,7 @@ app.get('/books/:id/details', (req, res) => {
       }
     })
     .catch((err) => {
-      res.status(500).send(err);
+      res.status(500).send(`ERROR GETTING DETAILS FROM DATABASE!, ${err}`);
     });
 });
 
