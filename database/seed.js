@@ -3,7 +3,6 @@ const mysql = require('mysql');
 const Promise = require('bluebird');
 const { seedAllData } = require('./seedMethods');
 
-
 const connection = mysql.createConnection({
   user: process.env.RDS_USERNAME,
   password: process.env.RDS_PASSWORD,
@@ -12,7 +11,14 @@ const connection = mysql.createConnection({
   host: process.env.RDS_HOSTNAME,
 });
 
-console.log('=======================================================\n\n');
+connection.connect(function (err) {
+  if (err) {
+    console.error('Database connection failed: ' + err.stack);
+    return;
+  }
+
+  console.log('Connected to database.');
+});
 
 const db = Promise.promisifyAll(connection, { multiArgs: true });
 
