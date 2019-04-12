@@ -5,8 +5,11 @@ const { seedAllData } = require('./seedMethods');
 
 
 const connection = mysql.createConnection({
-  user: 'root',
-  host: 'localhost',
+  user: process.env.RDS_USERNAME,
+  password: process.env.RDS_PASSWORD,
+  port: process.env.RDS_PORT,
+  // database: process.env.RDS_DB_NAME,
+  host: process.env.RDS_HOSTNAME,
 });
 
 const db = Promise.promisifyAll(connection, { multiArgs: true });
