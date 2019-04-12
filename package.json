@@ -10,7 +10,7 @@
   "scripts": {
     "seed": "node database/seed.js",
     "drop:tables": "node database/dropTables.js",
-    "start": "node server/server.js",
+    "start": "node server/index.js",
     "start:dev": "nodemon server/server.js",
     "build:dev": "webpack -d --watch --config webpack.dev.js",
     "build:prod": "webpack --config webpack.prod.js",
