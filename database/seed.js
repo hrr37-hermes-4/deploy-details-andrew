@@ -17,7 +17,7 @@ connection.connect(function (err) {
     return;
   }
 
-  console.log('Connected to database.');
+  console.log('Connected to database.\n\n\n\n');
 });
 
 const db = Promise.promisifyAll(connection, { multiArgs: true });
