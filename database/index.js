@@ -3,9 +3,9 @@ const Promise = require('bluebird');
 
 
 const connection = mysql.createConnection({
-  user: 'root',
-  password: '',
-  database: 'books',
+  user: process.env.RDS_USERNAME,
+  password: process.env.RDS_PASSWORD,
+  port: process.env.RDS_PORT,
 });
 
 const db = Promise.promisifyAll(connection, { multiArgs: true });
