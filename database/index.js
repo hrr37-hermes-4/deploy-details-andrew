@@ -14,7 +14,7 @@ const db = Promise.promisifyAll(connection, { multiArgs: true });
 
 // best not to always seed database on server start!
 db.connectAsync()
-  .then(() => console.log(`connected to mysql with id ${db.threadId}`))
+  .then(() => console.log(`connected to mysql with id ${db.threadId} \n\n\n\n\n`))
   .error((err) => { console.log('error connecting to db', err); });
 
 module.exports = db;

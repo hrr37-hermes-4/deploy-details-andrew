@@ -11,15 +11,6 @@ const connection = mysql.createConnection({
   host: process.env.RDS_HOSTNAME,
 });
 
-connection.connect(function (err) {
-  if (err) {
-    console.error('Database connection failed: ' + err.stack);
-    return;
-  }
-
-  console.log('Connected to database.\n\n\n\n');
-});
-
 const db = Promise.promisifyAll(connection, { multiArgs: true });
 
 const setupDb = () => {
