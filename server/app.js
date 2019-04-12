@@ -15,7 +15,7 @@ app.use('/books/:id', express.static(staticPath));
 // get initinal details
 app.get('/books/:id/details', (req, res) => {
   const { id } = req.params;
-
+  console.log('routing correctly and getting endpoint!!!\n\n');
   db.getDetails(id)
     .then((results) => {
       const details = results[0][0];
