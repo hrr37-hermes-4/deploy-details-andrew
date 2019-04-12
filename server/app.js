@@ -15,11 +15,11 @@ app.use('/books/:id', express.static(staticPath));
 // get initinal details
 app.get('/books/:id/details', (req, res) => {
   const { id } = req.params;
-  console.log('routing correctly and getting endpoint!!!\n\n');
+  console.log('\n============ Routing /details correctly ============\n');
   db.getDetails(id)
     .then((results) => {
       const details = results[0][0];
-
+      console.log('\n============ AM I GETTING DETAILS ============\n', 'this is details:\n', details);
       if (!details) {
         res.status(404).send('no data @ specified id');
       } else {
