@@ -12,6 +12,8 @@ const connection = mysql.createConnection({
   host: process.env.RDS_HOSTNAME,
 });
 
+console.log('=======================================================\n\n');
+
 const db = Promise.promisifyAll(connection, { multiArgs: true });
 
 const setupDb = () => {
