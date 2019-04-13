@@ -2,12 +2,18 @@ const mysql = require('mysql');
 const Promise = require('bluebird');
 // console.log('\n============ WHAT IS MY DATABASE NAME ============\n', process.env);
 
+const user = process.env.RDS_USERNAME || 'root';
+const password = process.env.RDS_PASSWORD || '';
+const port = process.env.RDS_PORT || 3306;
+const database = process.env.RDS_DB_NAME || 'books';
+const host = process.env.RDS_HOSTNAME || '127.0.0.1';
+
 const connection = mysql.createConnection({
-  user: process.env.RDS_USERNAME,
-  password: process.env.RDS_PASSWORD,
-  port: process.env.RDS_PORT,
-  host: process.env.RDS_HOSTNAME,
-  name: process.env.RDS_DB_NAME,
+  user,
+  password,
+  port,
+  database,
+  host,
 });
 
 const db = Promise.promisifyAll(connection, { multiArgs: true });
