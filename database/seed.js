@@ -3,10 +3,18 @@ const mysql = require('mysql');
 const Promise = require('bluebird');
 const { seedAllData } = require('./seedMethods');
 
+const user = process.env.RDS_USERNAME || 'root';
+const password = process.env.RDS_PASSWORD || '';
+const port = process.env.RDS_PORT || 3306;
+const database = process.env.RDS_DB_NAME || 'books';
+const host = process.env.RDS_HOSTNAME || '127.0.0.1';
 
 const connection = mysql.createConnection({
-  user: 'root',
-  host: 'localhost',
+  user,
+  password,
+  port,
+  database,
+  host,
 });
 
 const db = Promise.promisifyAll(connection, { multiArgs: true });
@@ -76,9 +84,9 @@ db.connectAsync()
   .then(() => console.log(`connected to mysql with id ${db.threadId}`))
   .error((err) => { console.log('error connecting to db', err); });
 
-db.queryAsync('CREATE DATABASE IF NOT EXISTS books')
+db.queryAsync('CREATE DATABASE IF NOT EXISTS ebdb')
   .then(() => {
-    return db.queryAsync('use books');
+    return db.queryAsync('use ebdb');
   })
   .then(() => {
     return setupDb();

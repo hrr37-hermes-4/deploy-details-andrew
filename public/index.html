@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src self; style-src-elem *"> -->
+
+  <!-- <meta http-equiv="Content-Security-Policy"
+    content="font-src 'self' data:; img-src 'self' * data:; default-src 'none'; script-src 'self' *; connect-src 'self' *; style-src * 'unsafe-inline'; style-src-elem  * 'unsafe-inline' 'unsafe-eval' 'unsafe-dynamic' blob: data: filesystem: about:"> -->
+
   <meta http-equiv="Content-Security-Policy"
-    content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://d3oa8t9v892sdk.cloudfront.net ">
-
-<meta http-equiv="Content-Security-Policy"
-  content="font-src 'self' data:; img-src 'self' data:; default-src 'self' http://121.0.0:3000/">
-
-
-
-
+    content="style-src * 'unsafe-inline' 'unsafe-eval' blob: data: filesystem: about:">
   <meta charset="utf-8">
-
   <title>Book Details</title>
 </head>
+
 <body>
   <div id='details'></div>
-  <!-- <script src="https://d3oa8t9v892sdk.cloudfront.net/bundle-details.js"></script> -->
-  <!-- <script src="bundle-details.js"></script> -->
+  <script src="https://d3oa8t9v892sdk.cloudfront.net/bundle-details.js"></script>
 </body>
 </html>
