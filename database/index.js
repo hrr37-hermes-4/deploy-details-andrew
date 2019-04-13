@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 const Promise = require('bluebird');
-
+console.log('\n============ WHAT IS MY DATABASE NAME ============\n', process.env.RDS_NAME);
 
 const connection = mysql.createConnection({
   user: process.env.RDS_USERNAME,
