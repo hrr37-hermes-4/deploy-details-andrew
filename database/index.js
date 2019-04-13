@@ -22,6 +22,7 @@ module.exports = db;
 const getDetails = (id) => {
   const queryString = 'SELECT * FROM details WHERE id = ?';
   const params = [id];
+  console.log('\n============ getDetails VARIABLES ============\n', queryString, params);
 
   return db.queryAsync(queryString, params);
 };
