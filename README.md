@@ -1,9 +1,9 @@
-# deploy-details-andrew
+#deploy-details-andrew
 
-#Description
+##Description
 deploy version of module in andrew-service-details for andrew-fec-proxy repo.
 
-#Usage
+##Usage
 Website shows books different books where :id tag is a number from 1-100;
 
 > http://deploy-server.sni72ccyr7.us-east-1.elasticbeanstalk.com/books/:id/
