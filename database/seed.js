@@ -78,10 +78,10 @@ db.connectAsync()
   .then(() => console.log(`connected to mysql with id ${db.threadId}`))
   .error((err) => { console.log('error connecting to db', err); });
 
-// db.queryAsync('CREATE DATABASE IF NOT EXISTS ebdb')
-//   .then(() => {
-db.queryAsync('use ebdb')
-  // })
+db.queryAsync('CREATE DATABASE IF NOT EXISTS ebdb')
+  .then(() => {
+    return db.queryAsync('use ebdb');
+  })
   .then(() => {
     return setupDb();
   })
