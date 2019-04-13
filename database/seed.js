@@ -7,7 +7,7 @@ const connection = mysql.createConnection({
   user: process.env.RDS_USERNAME,
   password: process.env.RDS_PASSWORD,
   port: process.env.RDS_PORT,
-  // database: process.env.RDS_DB_NAME,
+  database: process.env.RDS_DB_NAME,
   host: process.env.RDS_HOSTNAME,
 });
 
@@ -78,10 +78,10 @@ db.connectAsync()
   .then(() => console.log(`connected to mysql with id ${db.threadId}`))
   .error((err) => { console.log('error connecting to db', err); });
 
-db.queryAsync('CREATE DATABASE IF NOT EXISTS books')
-  .then(() => {
-    return db.queryAsync('use books');
-  })
+// db.queryAsync('CREATE DATABASE IF NOT EXISTS ebdb')
+//   .then(() => {
+db.queryAsync('use ebdb')
+  // })
   .then(() => {
     return setupDb();
   })
